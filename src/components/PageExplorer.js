@@ -22,8 +22,6 @@ export default function HuggingFaceStyledUI({
   const [datasets, setDatasets] = useState([]);
   const [spaces, setSpaces] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -89,36 +87,8 @@ export default function HuggingFaceStyledUI({
     document.title = `HuggingFace ${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} - Top ${titleMap[timeFrame]}`;
   }, [timeFrame, activeTab]);
 
-  const handleSubscribe = async () => {
-    if (!email || !email.includes("@")) {
-      toast.error("Please enter a valid email address.");
-      return;
-    }
-
-    try {
-      const res = await fetch(process.env.NEXT_PUBLIC_API_SUBSCRIBE, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-
-      const result = await res.json();
-
-      if (res.ok) {
-        toast.success("You've successfully subscribed!");
-        setEmail("");
-        setShowModal(false);
-      } else {
-        toast.error(result.error || "Subscription failed.");
-      }
-    } catch (error) {
-      console.error("Subscription error:", error);
-      toast.error("Something went wrong. Please try again later.");
-    }
-  };
-
   return (
-    <div className="min-h-screen py-12 px-4 bg-gradient-to-b from-[#0f0c29] via-[#302b63] to-[#24243e] text-white font-sans">
+    <div className="min-h-screen pt-32 md:pt-36 pb-8 md:pb-12 px-4 md:px-8 lg:px-12 bg-gradient-to-b from-[#0f0c29] via-[#302b63] to-[#24243e] text-white font-sans">
       <Toaster position="top-right" reverseOrder={false} />
 
       <section className="max-w-6xl mx-auto text-center">
@@ -142,16 +112,6 @@ export default function HuggingFaceStyledUI({
         <p className="text-[#F2C94C] mt-3 font-medium tracking-wide">
           {loading ? "" : `Showing ${getItemCount()} items`}
         </p>
-
-        {/* Subscribe Button */}
-        <div className="mt-10">
-          <button
-            onClick={() => setShowModal(true)}
-            className="bg-yellow-400 text-black font-semibold px-6 py-3 rounded-full shadow hover:bg-yellow-300 transition"
-          >
-            📩 Subscribe for Updates
-          </button>
-        </div>
       </section>
 
       {/* Content Section */}
@@ -178,16 +138,6 @@ export default function HuggingFaceStyledUI({
           renderContent()
         )}
       </section>
-
-      {/* Subscription Modal */}
-      {showModal && (
-        <SubscriptionModal
-          email={email}
-          setEmail={setEmail}
-          handleSubscribe={handleSubscribe}
-          onClose={() => setShowModal(false)}
-        />
-      )}
     </div>
   );
 
@@ -624,37 +574,6 @@ function PaperRow({ title, image, upvotes, link, comments, submittedBy }) {
           >
             View PDF
           </a>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function SubscriptionModal({ email, setEmail, handleSubscribe, onClose }) {
-  return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-      <div className="bg-white text-black rounded-xl p-8 w-full max-w-md">
-        <h2 className="text-xl font-bold mb-4">Subscribe to Email Digest</h2>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full border border-gray-300 p-3 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-        />
-        <div className="flex justify-between">
-          <button
-            onClick={handleSubscribe}
-            className="bg-yellow-400 px-4 py-2 rounded font-semibold hover:bg-yellow-300 transition"
-          >
-            Subscribe
-          </button>
-          <button
-            onClick={onClose}
-            className="text-gray-600 hover:underline"
-          >
-            Cancel
-          </button>
         </div>
       </div>
     </div>
