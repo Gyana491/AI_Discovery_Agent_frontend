@@ -535,34 +535,42 @@ function PaperRow({ title, image, upvotes, link, comments, submittedBy }) {
           }}
         />
       </div>
-      <div className="p-8 w-full">
-        <div className="flex justify-between items-start mb-4">
-          <div>
+      <div className="p-4 sm:p-6 md:p-8 w-full">
+        <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:justify-between sm:items-start mb-4">
+          <div className="flex-1 min-w-0 mr-4">
             <a
               href={link}
-              className="block text-xl leading-tight font-semibold text-white hover:underline mb-2"
+              className="block text-xl leading-tight font-semibold text-white hover:underline mb-2 text-justify line-clamp-2 sm:line-clamp-none"
               target="_blank"
               rel="noopener noreferrer"
+              title={title}
             >
               {title}
             </a>
-            <div className="text-sm text-gray-400">
+            <div className="text-sm text-gray-400 mb-3 sm:mb-0">
               Submitted by {submittedBy}
             </div>
+            <div className="flex items-center space-x-4 sm:hidden">
+              <div className="flex items-center bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-300">
+                ⬆ {upvotes}
+              </div>
+              <div className="flex items-center text-gray-400">💬 {comments}</div>
+            </div>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="hidden sm:flex items-center space-x-4">
             <div className="flex items-center bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-300">
               ⬆ {upvotes}
             </div>
             <div className="flex items-center text-gray-400">💬 {comments}</div>
           </div>
         </div>
-        <div className="flex space-x-4">
+        
+        <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 mt-4">
           <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#F2C94C] hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded inline-flex items-center transition-colors duration-300"
+            className="bg-[#F2C94C] hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded text-center sm:inline-flex items-center transition-colors duration-300"
           >
             View on HuggingFace
           </a>
@@ -570,7 +578,7 @@ function PaperRow({ title, image, upvotes, link, comments, submittedBy }) {
             href={arxivPdfLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-[#F2C94C] text-[#F2C94C] hover:bg-[#F2C94C] hover:text-black font-bold py-2 px-4 rounded inline-flex items-center transition-colors duration-300"
+            className="border border-[#F2C94C] text-[#F2C94C] hover:bg-[#F2C94C] hover:text-black font-bold py-2 px-4 rounded text-center sm:inline-flex items-center transition-colors duration-300"
           >
             View PDF
           </a>

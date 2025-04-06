@@ -34,8 +34,6 @@ export default function NavigationHeader() {
               </Link>
               <Link 
                 href="/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
                 className="text-gray-300 hover:text-[#F2C94C] transition-all duration-200 hover:scale-105"
               >
                 🤗 HuggingFace
@@ -55,26 +53,20 @@ export default function NavigationHeader() {
           <div className="md:hidden overflow-x-auto scrollbar-hide -mx-4 px-4">
             <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent my-3"></div>
             <div className="flex space-x-4 min-w-max pb-4">
-              <Link 
-                href="/" 
-                className="text-gray-300 hover:text-[#F2C94C] transition-all duration-200 bg-gray-800/50 px-4 py-2 rounded-full text-sm whitespace-nowrap"
-              >
-                🏠 Home
-              </Link>
+              
               <Link 
                 href="/trending-github" 
                 className="text-gray-300 hover:text-[#F2C94C] transition-all duration-200 bg-gray-800/50 px-4 py-2 rounded-full text-sm whitespace-nowrap"
               >
                 🔥 GitHub Trends
               </Link>
-              <a 
-                href="https://huggingface.co" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <Link 
+                href="/" 
+              
                 className="text-gray-300 hover:text-[#F2C94C] transition-all duration-200 bg-gray-800/50 px-4 py-2 rounded-full text-sm whitespace-nowrap"
               >
                 🤗 HuggingFace
-              </a>
+              </Link>
             </div>
           </div>
         </div>
