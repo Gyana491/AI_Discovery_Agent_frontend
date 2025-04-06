@@ -34,7 +34,7 @@ export default function TrendingGitHub() {
 
   return (
     <div
-      className="min-h-screen pt-32 md:pt-36 pb-8 md:pb-12 px-4 md:px-8 lg:px-12"
+      className="min-h-screen pt-36 md:pt-36 pb-8 md:pb-12 px-4 md:px-8 lg:px-12"
       style={{ background: "linear-gradient(to bottom, #201B2C, #2D1F46)" }}
     >
       {/* Hero Section */}

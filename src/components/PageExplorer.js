@@ -88,7 +88,7 @@ export default function HuggingFaceStyledUI({
   }, [timeFrame, activeTab]);
 
   return (
-    <div className="min-h-screen pt-32 md:pt-36 pb-8 md:pb-12 px-4 md:px-8 lg:px-12 bg-gradient-to-b from-[#0f0c29] via-[#302b63] to-[#24243e] text-white font-sans">
+    <div className="min-h-screen pt-36 md:pt-36 pb-8 md:pb-12 px-4 md:px-8 lg:px-12 bg-gradient-to-b from-[#0f0c29] via-[#302b63] to-[#24243e] text-white font-sans">
       <Toaster position="top-right" reverseOrder={false} />
 
       <section className="max-w-6xl mx-auto text-center">
