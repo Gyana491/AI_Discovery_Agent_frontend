@@ -2,27 +2,34 @@
 
 A modern web application built with Next.js that aggregates and displays trending AI/ML content from HuggingFace and GitHub. The platform provides an elegant, user-focused interface for exploring papers, models, datasets, and spaces from the AI/ML community.
 
+![1743972893167](images/README/1743972893167.png)
+
+![1743972906247](images/README/1743972906247.png)
+
+![1743972916143](images/README/1743972916143.png)
+
 ## Features
 
 - 🔍 **HuggingFace Integration**
+
   - Browse trending papers with upvotes and comments
   - Explore popular models with pipeline tags and download stats
   - Discover datasets with detailed information
   - Access community spaces with live demos
-
 - 🌟 **GitHub Trends**
+
   - Track trending repositories
   - View popular developers
   - Real-time updates on stars and forks
-
 - 📨 **Newsletter Integration**
+
   - Subscribe to stay updated
   - Receive curated content every 12 hours
   - Customizable email preferences
 
 ## Tech Stack
 
-- **Framework**: Next.js 
+- **Framework**: Next.js
 - **Styling**: TailwindCSS
 - **State Management**: React Hooks
 - **Integrations**: HuggingFace API, GitHub API
@@ -31,17 +38,20 @@ A modern web application built with Next.js that aggregates and displays trendin
 ## Getting Started
 
 1. Clone the repository:
+
 ```bash
 git clone [repository-url]
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Set up environment variables:
-Create a `.env` file with the following variables:
+   Create a `.env` file with the following variables:
+
 ```env
 NEXT_PUBLIC_API_PAPERS=/api/papers
 NEXT_PUBLIC_API_SUBSCRIBE=[your-subscribe-endpoint]
@@ -52,6 +62,7 @@ NEXT_PUBLIC_API_GITHUB_REPO=[github-repositories-endpoint]
 ```
 
 4. Run the development server:
+
 ```bash
 npm run dev
 ```
